@@ -21,3 +21,60 @@ function closePopup(){
   document.getElementById("overlay").style.display="none";
 }
 document.getElementById("overlay").onclick = closePopup;
+
+//<============== Buy Box ===================>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  // Full product list with images, price, description
+  const products = [
+    {name:"Bracelet", price:"149₹", img:"others/images/product/necklace02-1.jpg", desc:"Handmade premium bracelet"},
+    {name:"PhoneChram", price:"99₹", img:"others/images/product/phonechram02-3.jpg", desc:"Handmade phonecharm"},
+    {name:"BagChram", price:"169₹", img:"others/images/product/bagchram06-1.jpg", desc:"Stylish bag charm"},
+    {name:"Necklace", price:"249₹", img:"others/images/product/necklace01-1.jpg", desc:"Beautiful handmade necklace"}
+  ];
+
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const popupSearch = document.getElementById("popupSearch");
+  const resultList = document.getElementById("resultList");
+  const closeSearch = document.getElementById("closeSearch");
+
+  //<======================= Search-panel ==================>
+  
+  // Show search results
+  function showSearchResults(query){
+      query = query.toLowerCase().trim();
+      if(query === ""){
+          popupSearch.style.display = "none";
+          return;
+      }
+
+      const filtered = products.filter(p => p.name.toLowerCase().includes(query));
+
+      resultList.innerHTML = "";
+      if(filtered.length>0){
+          filtered.forEach(p=>{
+              resultList.innerHTML += `
+                <div class="search-result" onclick="showProduct('${p.name}','${p.price}','${p.img}','${p.desc}')">
+                  <img src="${p.img}">
+                  <div class="result-info">
+                    <h4>${p.name}</h4>
+                    <p>Price: ${p.price}</p>
+                  </div>
+                  <a class="order-btn" href="https://www.instagram.com/direct/t/daydream_beads_?text=${encodeURIComponent('Hello, I want to order '+p.name+' for '+p.price)}" target="_blank">Order</a>
+                </div>
+              `;
+          });
+      } else {
+          resultList.innerHTML = "<p>No product found</p>";
+      }
+
+      popupSearch.style.display = "flex";
+  }
+
+  searchInput.addEventListener("input", ()=>showSearchResults(searchInput.value));
+  searchBtn.addEventListener("click", ()=>showSearchResults(searchInput.value));
+  closeSearch.addEventListener("click", ()=>popupSearch.style.display="none");
+  document.addEventListener("keydown", e=>{if(e.key==="Escape") popupSearch.style.display="none"});
+});
