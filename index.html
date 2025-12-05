@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
@@ -7,8 +6,7 @@
   <title>DayDreams</title>
 </head>
 <body>  
-  
-<!-- =========== POPUP =========== -->
+<!-- =========== POPUP-Buy =========== -->
 <div id="overlay"></div>
 <div id="popup-box">
     <img id="popup-img">
@@ -16,35 +14,50 @@
         <h2 id="popup-name"></h2>
         <p>Price: <b id="popup-price"></b></p>
         <p id="popup-desc"></p>
-
         <!-- WhatsApp Auto Redirect -->
         <a id="insta-link" class="instagram-btn" target="_blank">Order on Instagram</a>
         <div class="close-btn" onclick="closePopup()">Close</div>
     </div>
 </div>
 <!-- ============================= -->
-
-
+  
+<!-- =========== Logo panel =========== -->
   <div class="body animation">
   <header>
     <p>Home</p>
   </header>
     <div class="logo-panel">
       <img src="others/images/logo/main-logo.jpg"><p class="border-white"><a href="https://www.instagram.com/daydream_beads_">DayDream Beads</a></p>
-   </div>
+   </div> 
+ <!-- ============================= -->
+  
+<!-- =========== Search panel =========== -->
   <div class="search-panel">
     <div class="search-bar border-black">
-        <select>
-          <option>All</option>
-          <option>phonechram</option>
-          <option>braslet</option>
-          <option>Necklace</option>
-          <input placeholder="   Search DayDreams">
-          <button><a href="products.html">Search</a></button>
-        </select>
+      <select>
+        <option>All</option>
+        <option>phonechram</option>
+        <option>braslet</option>
+        <option>Necklace</option>
+      </select>
+      <!-- Search Bar -->
+      <input type="text" id="searchInput" placeholder="Search DayDreams">
+      <button id="searchBtn">Search</button>
     </div>
   </div>
+  <!-- ============================= -->
   
+<!-- =========== search-result =========== -->
+     <div id="popupSearch">
+      <div class="popupSearchContent">
+          <span id="closeSearch">&times;</span>
+          <h2>Search Results</h2>
+          <div id="resultList"></div>
+      </div>
+  </div>
+ <!-- ============================= -->
+  
+<!-- =========== Advertisment =========== --> 
     <div class="advertisment">
       <p>Advertisment Available for other brand !!</p>
       <p><a href="https://www.instagram.com/daydream_beads_" class="border-white">DM US</a> or Contact <a href="https://www.instagram.com/sk_asraful_islam00" class="border-white">ARTIST</a>.</p>
@@ -52,10 +65,17 @@
       <div class="notice-panel">
       <p>Get best Quality product in Budget</p>
     </div>
+<!-- ============================= -->
+  
+<!-- =========== varity selection =========== -->
     <div class="varity-panel">
       
     </div>
+<!-- ============================= -->
+  
+<!-- =========== Product-Hub =========== -->
     <div class="product-hub">
+       <!-- Product-box-A -->
       <div class="current-product">
         <div class="a-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
           <div class="product01">
@@ -74,7 +94,8 @@
           </div>
     </div>
        </div>
-     
+      
+      <!-- prodcut-box-B-->
       <div class="mini-product">
   
         <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
@@ -91,6 +112,7 @@
       
     </div>
       </div>
+      <!-- prodcut-box-B-->
        <div class="mini-product">
   
               <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
@@ -107,7 +129,7 @@
       
     </div>
       </div>
-      
+      <!-- prodcut-box-B-->
       <div class="mini-product">
        
                <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
@@ -123,7 +145,7 @@
              <center><i><p> <a>Bracelet :</a> <del style="color:pink;">129&#8377; </del> <b style="color:black;">69&#8377;</b> Only</p> </i></center>
     </div>
       </div>
-     
+     <!-- prodcut-box-B-->
       <div class="mini-product">
        
                 <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
@@ -140,10 +162,11 @@
       
     </div>
       </div>
-      <p align="right">
-     <a href="products.html" style="background-image: linear-gradient(pink,white); color:black;"><  show All !! ></a>
-     </p>
      </div>
+    
+    <!-- ============================= -->
+  
+<!-- =========== End-Detail-box =========== -->
     <div class="detail-panel">
       <div class="brand-details ">
         <center><a href="https://www.instagram.com/daydream_beads_"><img src="others/images/logo/instagram.png" height="50px;"></a></center>
@@ -158,7 +181,6 @@
         <center><a href="https://github.com/TechArtistORG"><img src="others/images/logo/git.png" class="border-white" style="height:50%; width:20%;"></a></center>      
       </div>
     </div>
-    
   </div>
     
     <script src="styles/index.js"></script>
