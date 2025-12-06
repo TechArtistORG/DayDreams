@@ -5,7 +5,22 @@
   <link rel="stylesheet" href="styles/index.css"/>
   <title>DayDreams</title>
 </head>
-<body>  
+<body> 
+  
+<!-- 🛒 CART POPUP -->
+<div id="cartPopup" class="cart-popup">
+    <div class="cart-box">
+        <h2>🛒 Your Cart</h2>
+        <div id="cartContent"></div>
+        <div class="cart-footer">
+            <p style="font-size:25px;">Total: ₹<span id="cartTotal">0</span></p>
+            <button onclick="clearCart()" class="clearCartBtn">Clear Cart</button>
+            <button onclick="closeCart()" class="closeCartBtn">Close</button>
+          <a id="insta-link" class="instagram-btn" target="_blank">Order on Instagram</a>
+        </div>
+    </div>
+</div>
+  
 <!-- =========== POPUP-Buy with Image Slider =========== -->
 <div id="overlay"></div>
 <div id="popup-box"> 
@@ -19,6 +34,7 @@
         <p id="popup-desc"></p>
         <a id="insta-link" class="instagram-btn" target="_blank">Order on Instagram</a>
         <div class="close-btn" onclick="closePopup()">Close</div>
+        
     </div>
 </div>
 
@@ -44,7 +60,11 @@
       <!-- Search Bar -->
       <input type="text" id="searchInput" placeholder="Search DayDreams">
       <button id="searchBtn">Search</button>
+       <div id="cartIcon" >
+         <p>🛒<span id="cartCount">0</span></p>
+</div>
     </div>
+   
   </div>
   <!-- ============================= -->
   
@@ -78,20 +98,18 @@
     <div class="product-hub">
        <!-- Product-box-A -->
       <div class="current-product">
-        <div class="a-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99',['others/images/product/necklace02-1.jpg','others/images/product/necklace02-2.jpg'],'Handmade premium bracelet, best quality with beads')">
-          <div class="product01">
-            <div class="img">
+        <div class="a-product border-black" onclick="showProduct('Necklace','<del>₹299</del>  ₹149',['others/images/product/necklace02-1.jpg','others/images/product/necklace02-2.jpg'],'Handmade premium neklace, best quality with beads')">
+          <div class="product01 product" data-id="1" data-name="Necklace" data-price="149" data-img="others/images/product/necklace02-1.jpg">
               <img src="others/images/product/necklace02-1.jpg">
-            </div>
-            <i><p> <a>Bracelet :</a> <del style="color:pink;">299₹ </del> <b style="color:black;">149₹</b> Only</p>   </i>      
+            <i><p> <a>Bracelet :</a> <del style="color:pink;">299₹ </del> <b style="color:black;">149₹</b> Only</p>   </i> 
+            <button class="addCartBtn">Add to Cart</button>
           </div>
         </div>
-        <div class="a-product border-black" onclick="showProduct('Phonechram','<del>₹199</del>  ₹99',['others/images/product/phonechram02-3.jpg','others/images/product/phonechram02-2.jpg','others/images/product/phonechram02-1.jpg'],'Handmade premium bracelet, best quality with beads')">
-          <div class="product01">
-            <div class="img">
+        <div class="a-product border-black 02" onclick="showProduct('Phonechram','<del>₹199</del>  ₹99',['others/images/product/phonechram02-3.jpg','others/images/product/phonechram02-2.jpg','others/images/product/phonechram02-1.jpg'],'Handmade premium bracelet, best quality with beads')">
+          <div class="product01">   
               <img src="others/images/product/phonechram02-3.jpg">
-            </div>
-            <i><p> <a>PhoneChram :</a> <del style="color:pink;">199₹ </del> <b style="color:black;">99₹</b> Only</p>   </i>         
+            <i><p> <a>PhoneChram :</a> <del style="color:pink;">199₹ </del> <b style="color:black;">99₹</b> Only</p>   </i>  
+            <button class="addCartBtn">Add to Cart</button>            
           </div>
     </div>
        </div>
@@ -99,24 +117,26 @@
       <!-- prodcut-box-B-->
       <div class="mini-product">
   
-        <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
+        <div class="b-product border-black" onclick="showProduct('BagChram','<del>₹499</del>  ₹169',['others/images/product/bagchram06-1.jpg','others/images/product/bagchram06-2.jpg'],'Handmade premium BagChram, best quality with beads')">
           <img src="others/images/product/bagchram06-1.jpg">
           <center><i><p> <a>BagChram :</a> <del style="color:pink;">499₹; </del> <b style="color:black;">169&#8377;</b> Only</p> </i></center>
+          <button class="addCartBtn">Add to Cart</button>  
         </div>
-     <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
+     <div class="b-product border-black" onclick="showProduct('BagChram','<del>₹129</del>  ₹65',['others/images/product/bagchram04-1.jpg','others/images/product/bagchram04-2.jpg'],'Handmade premium BagChram, best quality with beads')">
       <img src="others/images/product/bagchram04-1.jpg">
             <center><i><p> <a>BagChram :</a> <del style="color:pink;">129&#8377; </del> <b style="color:black;">65&#8377;</b> Only</p> </i></center>
+    <button class="addCartBtn">Add to Cart</button>     
     </div>
-                <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
+                <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99',['others/images/product/bagchram03-1.jpg','others/images/product/bagchram03-2.jpg'],'Handmade premium bracelet, best quality with beads')">
            <img src="others/images/product/bagchram03-1.jpg">
              <center><i><p> <a>BagChram :</a> <del style="color:pink;">149&#8377; </del> <b style="color:black;">69&#8377;</b> Only</p> </i></center>
-      
+       <button class="addCartBtn">Add to Cart</button> 
     </div>
       </div>
       <!-- prodcut-box-B-->
        <div class="mini-product">
   
-              <div class="b-product border-black" onclick="showProduct('Bracelet','<del>₹199</del>  ₹99','others/images/product/necklace02-1.jpg','Handmade premium bracelet, best quality with beads')">
+              <div class="b-product border-black" onclick="showProduct('PhoneChram','<del>₹199</del>  ₹99',['others/images/product/phonechram02-3.jpg','others/images/product/phonechram02-2.jpg','others/images/product/phonechram02-1.jpg'],'Handmade premium bracelet, best quality with beads')">
           <img src="others/images/product/phonechram02-3.jpg">
           <center><i><p> <a> PhoneChram :</a> <del style="color:pink;">499&#8377; </del> <b style="color:black;">169&#8377;</b> Only</p> </i></center>
         </div>
@@ -163,6 +183,7 @@
       
     </div>
       </div>
+      
      </div>
     
     <!-- ============================= -->
