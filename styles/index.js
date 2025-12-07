@@ -1,7 +1,8 @@
- /* ========= Data ========= */
+
+  /* ========= Data ========= */
   const products = [
-    {name:"Bracelet", price:"149₹", oldPrice:"", imgs:["others/images/product/bracelet01-1.jpg"], desc:"Handmade premium bracelet"},
-    {name:"Bracelet", price:"149₹", oldPrice:"", imgs:["others/images/product/bracelet02-1.jpg"], desc:"Handmade premium bracelet"},
+    {name:"Bracelet", price:"149₹", oldPrice:"100₹", imgs:["others/images/product/bracelet01-1.jpg"], desc:"Handmade premium bracelet"},
+    {name:"Bracelet", price:"149₹", oldPrice:"90₹", imgs:["others/images/product/bracelet02-1.jpg"], desc:"Handmade premium bracelet"},
     {name:"Bracelet", price:"149₹", oldPrice:"", imgs:["others/images/product/bracelet03-1.jpg"], desc:"Handmade premium bracelet"},
     {name:"Bracelet", price:"149₹", oldPrice:"", imgs:["others/images/product/bracelet04-1.jpg"], desc:"Handmade premium bracelet"},
     {name:"Bracelet", price:"", oldPrice:"", imgs:["others/images/product/bracelet05-1.jpg"], desc:"Not available"},
@@ -24,6 +25,7 @@
     {name:"Necklace", price:"249₹", oldPrice:"", imgs:["others/images/product/necklace02-1.jpg"], desc:"Beautiful handmade necklace"},
     {name:"Necklace", price:"249₹", oldPrice:"", imgs:["others/images/product/necklace03-1.jpg"], desc:"Beautiful handmade necklace"},
   ];
+
   /* ========= DOM refs ========= */
   const productGrid = document.getElementById('productGrid');
   const modalWrap = document.getElementById('modalWrap');
@@ -46,6 +48,7 @@
   const closeSearchPanel = document.getElementById('closeSearchPanel');
   const mobileSearchToggle = document.getElementById('mobileSearchToggle');
   const topbar = document.getElementById('topbar');
+
   /* ========= Rendering grid ========= */
   function createCard(p, idx){
     const div = document.createElement('article');
@@ -70,9 +73,6 @@
         </div>
       </div>
     `;
-    
-    
-
     // events
     const thumb = div.querySelector('.thumb');
     thumb.addEventListener('click', ()=>openModal(idx));
@@ -97,7 +97,8 @@
     productGrid.appendChild(frag);
   }
   renderGrid();
-/* ========= Modal logic ========= */
+
+  /* ========= Modal logic ========= */
   let currentIndex = 0;
   let currentImgs = [];
 
@@ -203,7 +204,7 @@
       if(endX > startX + 40) prevBtn.click();
     }, {passive:true});
   })();
-  
+
   /* ========= Search & Live filter ========= */
   function normalizeText(v){ return (v||'').toString().toLowerCase().trim(); }
 
@@ -406,7 +407,7 @@
       const btn = e.target;
       const item = btn.closest('.search-item');
       const img = item.querySelector('img');
-      const name = item.querySelector('h4').textContent;
+      const name = item.querySelecto4r('h4').textContent;
       const p = products.find(prod => prod.name === name || prod.imgs[0] === img.src);
       if(p) openModal(products.indexOf(p));
     }
